@@ -1,0 +1,20 @@
+<!-- bootstrap style Flash messages -->
+<F3:repeat group="{{ \Flash::instance()->getMessages() }}" value="{{ @msg }}">
+    <div class="alert alert-dismissible fade show position-fixed"
+         id="message" role="alert"
+         data-mdb-color="{{ @msg.status }}"
+         data-mdb-position="top-right"
+         data-mdb-width="25%"
+         data-mdb-offset="100"
+         data-mdb-stacking="true"
+    >
+        <F3:switch expr="{{@msg.status}}">
+            <F3:default><i class="fas fa-info-circle me-3" aria-hidden="true"></i></F3:default>
+            <F3:case value="danger"><i class="fas fa-times-circle me-3" aria-hidden="true"></i></F3:case>
+            <F3:case value="success"><i class="fas fa-check-circle me-3" aria-hidden="true"></i></F3:case>
+            <F3:case value="warning"><i class="fas fa-exclamation-triangle me-3" aria-hidden="true"></i></F3:case>
+        </F3:switch>
+        {{ trim(@msg.text) }}
+        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+    </div>
+</F3:repeat>

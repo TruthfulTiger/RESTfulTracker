@@ -1,0 +1,117 @@
+<!-- Sidenav -->
+<nav id="sidenav-1" data-mdb-color="light" style="background-color: #1266f1;"
+     class="sidenav text-light" data-mdb-hidden="false" data-mdb-accordion="true">
+    <a class="d-flex justify-content-center py-4 navbar-brand" href="#!">
+        <h3 class="title text-white">User Menu</h3>
+    </a>
+
+    <ul class="sidenav-menu">
+        <li class="sidenav-item">
+            <a class="sidenav-link" href="#">
+                <i class="fas fa-tachometer-alt fa-fw me-3" aria-hidden="true"></i><span>Dashboard</span></a>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link"><i class="fas fa-cogs fa-fw me-3" aria-hidden="true"></i><span>Settings</span></a>
+            <ul class="sidenav-collapse">
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="/user/profile">Profile</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="/user/account" >Account</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="/user/games" >Games owned</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#" >Trackers</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link"><i class="fas fa-lock fa-fw me-3" aria-hidden="true"></i><span>Password</span></a>
+            <ul class="sidenav-collapse">
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="/user/update">Change password</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link"><img src="{{@BASE}}/assets/images/sims2/The_Sims_2_Icon.png" class="me-3" width="18" alt="Sims 2 icon" /><span>Sims 2 Tracker</span></a>
+            <ul class="sidenav-collapse">
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Neighbourhoods</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Households</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Sims</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Pets</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Businesses</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Relationships</a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Challenges</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link"><img src="{{@BASE}}/assets/images/sims3/Base Game/The Sims 3 (PNG).png" class="me-3" width="18" alt="Sims 3 icon" /><span>Sims 3 Tracker</span></a>
+            <ul class="sidenav-collapse">
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Change password</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidenav-item">
+            <a class="sidenav-link"><img src="{{@BASE}}/assets/images/sims4/TS4_Icon.png" class="me-3" width="18" alt="Sims 4 icon" /><span>Sims 4 Tracker</span></a>
+            <ul class="sidenav-collapse">
+                <li class="sidenav-item">
+                    <a class="sidenav-link" href="#">Change password</a>
+                </li>
+            </ul>
+        </li>
+        <check if="{{ @SESSION.user_type==100 }}">
+        <li class="sidenav-item">
+            <a class="sidenav-link" href="/admin/users">
+                <i class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+        </li>
+        </check>
+    </ul>
+</nav>
+<!-- Sidenav -->
+<!-- Sidenav -->
+<script type="text/javascript">
+    const sidenav = document.getElementById("sidenav-1");
+    const instance = mdb.Sidenav.getInstance(sidenav);
+
+    let innerWidth = null;
+
+    const setMode = (e) => {
+        // Check necessary for Android devices
+        if (window.innerWidth === innerWidth) {
+            return;
+        }
+
+        innerWidth = window.innerWidth;
+
+        if (window.innerWidth < 1400) {
+            instance.changeMode("over");
+            instance.hide();
+        } else {
+            instance.changeMode("side");
+            instance.show();
+        }
+    };
+
+    setMode();
+
+    // Event listeners
+    window.addEventListener("resize", setMode);
+</script>

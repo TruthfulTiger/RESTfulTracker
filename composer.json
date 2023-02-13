@@ -1,0 +1,9 @@
+{
+  "require": {
+    "bcosca/fatfree-core": "^3.7",
+    "ikkez/f3-flash": "^1.0",
+    "phpmailer/phpmailer": "^6.5",
+    "n0nag0n/fatfree-xss-filter": "^1.0",
+    "ikkez/f3-falsum": "^2.8"
+  }
+}

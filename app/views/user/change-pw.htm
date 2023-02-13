@@ -1,0 +1,36 @@
+<!--Main layout-->
+	<div class="container pt-5 smform">
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-6">
+				<div class="card text-center">
+					<div class="card-header p-4">
+						<h2 class="mb-0"><strong>Change password</strong></h2>
+					</div>
+					<div class="card-body p-4">
+						<p class="mb-4">Set a new password</p>
+
+						<form action="" method="post" validate="true" class="mb-4">
+							<div class="form-outline mb-4">
+								<input type="password" data-validation="pw_or_empty" name="new_password" id="new_password" class="form-control" />
+								<label class="form-label" for="new_password">New password</label>
+							</div>
+
+							<div class="form-outline mb-4">
+								<input type="password" name="confirm" id="confirm" class="form-control" />
+								<label class="form-label" for="confirm">{{ @i18n_password_conf }}</label>
+							</div>
+
+							<button type="button" class="btn btn-primary" type="submit" name="reset_pw">{{ @i18n_changepassword }}</button>
+						</form>
+
+						<div class="d-flex justify-content-between align-items-center mb-2">
+							<u><a href="/login">Back to Log In</a></u>
+
+							<u><a href="/register">Register</a></u>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--Main layout-->

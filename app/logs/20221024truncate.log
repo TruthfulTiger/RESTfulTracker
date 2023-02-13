@@ -1,0 +1,5 @@
+Mon, 24 Oct 2022 17:31:54 +0000 [192.168.1.59] (2.7ms) SHOW columns FROM `trackerrest`.`users`
+Mon, 24 Oct 2022 17:31:54 +0000 [192.168.1.59] (58.8ms) TRUNCATE TABLE test
+Mon, 24 Oct 2022 17:32:07 +0000 [192.168.1.59] (35.6ms) TRUNCATE TABLE test
+Mon, 24 Oct 2022 17:33:06 +0000 [192.168.1.59] (4.1ms) SHOW columns FROM `trackerrest`.`users`
+Mon, 24 Oct 2022 17:33:06 +0000 [192.168.1.59] (35.2ms) TRUNCATE TABLE test

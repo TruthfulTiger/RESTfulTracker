@@ -1,0 +1,280 @@
+<main role="main" class="container">
+    <div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+        <div class="row">
+            <div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+<h1>{{ @title }}</h1>
+                <F3:check if="{{ isset(@SESSION.logged_in) && @SESSION.logged_in }}">
+                    <true>
+                        <p>Hello, {{ @user.displayName }}!</p>
+                    </true>
+                    <false>
+                        <p>Hello, {{ @name }}!</p>
+                    </false>
+                </F3:check>
+                <p>Today's date is {{@date}}</p>
+                <p>The time is currently {{@time}}</p>
+                <label class="form-label" for="businessRank">Business Rank: <span id="rankName"></span></label>
+                <div class="range">
+                    <input type="range" class="form-range" min="-5" max="10" value="0" id="businessRank" />
+                </div>
+                <hr />
+                <table class="table" id="datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col" data-mdb-editable="false">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <F3:repeat group="{{ @test }}" value="{{ @value }}">
+                        <tr>
+                            <td>{{ trim(@value.id) }}</td>
+                            <td>{{ trim(@value.name) }}</td>
+                            <td>
+                                <div class="d-flex flex-row mb-3">
+                                    <div class="p-2">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary btn-floating btn-lg"
+                                                title="View"
+                                                data-mdb-toggle="modal"
+                                                data-mdb-whatever="{{ @value.name }}"
+                                                data-mdb-target="#myModal">
+                                            <i class="fas fa-eye fa-lg pe-none" aria-hidden="true" title="View"></i>
+                                            <span class="visually-hidden">View</span>
+                                        </button>
+                                    </div>
+                                    <div class="p-2">
+                                        <button type="button" class="btn btn-secondary btn-floating btn-lg"
+                                                title="Edit"
+                                                data-mdb-toggle="modal"
+                                                data-mdb-whatever="{{ @value.name }}"
+                                                data-mdb-id="{{ @value.id }}"
+                                                data-mdb-target="#editItem">
+                                            <i class="fas fa-edit fa-lg pe-none" aria-hidden="true" title="Edit"></i>
+                                            <span class="visually-hidden">Edit</span>
+                                        </button>
+                                    </div>
+                                    <div class="p-2">
+                                        <a class="btn btn-danger btn-floating btn-lg"
+                                           title="Delete"
+                                           onclick="confirmDelete('{{ @BASE.'/test/delete/'. @value.id }}');" >
+                                            <i class="fas fa-trash-alt fa-lg" title="Delete"></i>
+                                            <span class="visually-hidden">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </F3:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Title</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addItem" tabindex="-1" aria-labelledby="addItemlLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addItemLabel">Add Item</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" id="addForm" action="{{ @BASE.'/test/add' }}" role="form">
+            <div class="modal-body">
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="vlname" name="name" class="form-control" />
+                    <label class="form-label" for="vlname">Name</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <input type="text" name="hptrap" class="hptrap"/>
+                <button type="submit" name="addSubmit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editItem" tabindex="-1" aria-labelledby="editItemlLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editItemLabel">Edit Item</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" id="editForm" action="{{ @BASE.'/test/edit' }}" role="form">
+            <div class="modal-body">
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="vname" name="name" class="form-control" />
+                    <label class="form-label" for="vname">Name</label>
+                    <input type="hidden" name="id" id="id"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <input type="text" name="hptrap" class="hptrap"/>
+                <input type="submit" name="editSubmit" class="btn btn-primary" value="Save changes">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    let rankName = $("#rankName");
+    let rank;
+    let rankLevel = $('#businessRank');
+    let rows;
+    let table = $('#datatable').DataTable({
+        processing: true,
+        responsive: true,
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'Add item',
+                action: function ( e, dt, node, config ) {
+                    $('#addItem').modal('show');
+                }
+            },
+            {
+                text: 'Delete all',
+                action: function ( e, dt, node, config ) {
+                    confirmDelete('test/purge');
+                }
+            }
+        ]
+    });
+
+    $(function() {
+    $.ajax({
+            cache: true,
+            success: function(data) {
+                rank = data;
+                bizRankCheck(rankLevel.val());
+            },
+            url: 'assets/json/businessRank.json'
+        });
+
+        $('#addSubmit').on('click', function (e) {
+            $('#addForm').submit();
+            $('#addItem').modal('hide');
+        });
+
+        $('#editSubmit').on('click', function (e) {
+            $('#editForm').submit();
+            $('#editItem').modal('hide');
+        });
+
+        $('#businessRank').on('change', function (e) {
+            bizRankCheck(rankLevel.val());
+        });
+    });
+
+    function bizRankCheck(value) {
+        switch (value) {
+            case '-5': return rankName.text(rank.rankN5);
+            case '-4': return rankName.text(rank.rankN4);
+            case '-3': return rankName.text(rank.rankN3);
+            case '-2': return rankName.text(rank.rankN2);
+            case '-1': return rankName.text(rank.rankN1);
+            case '0': return rankName.text(rank.rank0);
+            case '1': return rankName.text(rank.rank1);
+            case '2': return rankName.text(rank.rank2);
+            case '3': return rankName.text(rank.rank3);
+            case '4': return rankName.text(rank.rank4);
+            case '5': return rankName.text(rank.rank5);
+            case '6': return rankName.text(rank.rank6);
+            case '7': return rankName.text(rank.rank7);
+            case '8': return rankName.text(rank.rank8);
+            case '9': return rankName.text(rank.rank9);
+            case '10': return rankName.text(rank.rank10);
+            default: return rankName.text('testing');
+        }
+    }
+
+    const exampleModal = document.getElementById('myModal');
+    const editModal = document.getElementById('editItem');
+
+     exampleModal.addEventListener('show.mdb.modal', (e) => {
+        // Button that triggered the modal
+        const button = e.relatedTarget;
+        // Extract info from data-mdb-* attributes
+        const recipient = button.getAttribute('data-mdb-whatever');
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        const modalText = exampleModal.querySelector('.modal-body');
+     //   const modalBodyInput = exampleModal.querySelector('.modal-body input');
+
+        modalText.textContent = `Name: ${recipient}`;
+       // modalBodyInput.value = recipient;
+    })
+
+    editModal.addEventListener('show.mdb.modal', (e) => {
+        // Button that triggered the modal
+        const button = e.relatedTarget;
+        // Extract info from data-mdb-* attributes
+        const recipient = button.getAttribute('data-mdb-whatever');
+        const id = button.getAttribute('data-mdb-id');
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+     //   const modalText = exampleModal.querySelector('.modal-body');
+        const modalBodyInput = editModal.querySelector('.modal-body input[id=vname]');
+        const modalBodyHidden = editModal.querySelector('.modal-body input[id=id]');
+
+      //  modalText.textContent = `Name: ${recipient}`;
+        modalBodyInput.value = recipient;
+        modalBodyHidden.value = id;
+    })
+
+    function confirmDelete(url) {
+        swal({
+            title: "Are you sure?",
+            text: "This action is irreversible. Only continue if you are sure you won't need this again.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Data has been deleted", {
+                        icon: "success",
+                    });
+                    $(location).attr("href", url);
+                }
+            });
+    }
+</script>

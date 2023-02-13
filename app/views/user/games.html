@@ -1,0 +1,602 @@
+<!--Main layout-->
+<main role="main" class="container">
+    <div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+        <div class="row">
+            <div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+                <h1>{{ @title }}</h1>
+                <turbo-frame id="games">
+                    <form method="post" action="/user/games">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mb-0">Base games</p>
+                                <!-- Games -->
+                                <div class="form-check form-check-inline mb-3">
+                                    <input type="checkbox" id="sims2" name="sims2" class="form-check-input"
+                                    <check if="{{ @usergame.sims2 === 1 }}">
+                                        checked
+                                    </check>
+                                    />
+                                    <label class="form-check-label" for="sims2">
+                                        <img src="/assets/images/sims2/The_Sims_2_Icon.png" width="32"
+                                             alt="The Sims 2" data-mdb-toggle="tooltip" title="The Sims 2"></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="sims3" name="sims3" class="form-check-input"
+                                    <check if="{{ @usergame.sims3 === 1 }}">
+                                        checked
+                                    </check>
+                                    />
+                                    <label class="form-check-label" for="sims3">
+                                        <img src="/assets/images/sims3/Base Game/The Sims 3 (PNG).png" width="32"
+                                             alt="The Sims 3" data-mdb-toggle="tooltip" title="The Sims 3"></label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="sims4" name="sims4" class="form-check-input"
+                                    <check if="{{ @usergame.sims4 === 1 }}">
+                                        checked
+                                    </check>
+                                    />
+                                    <label class="form-check-label" for="sims4">
+                                        <img src="/assets/images/sims4/TS4_Icon.png" width="32" alt="The Sims 4"
+                                             data-mdb-toggle="tooltip" title="The Sims 4"></label>
+                                </div>
+                                <!-- Sims 2 EPs -->
+                                <p class="mb-0">Sims 2 EPs owned</p>
+                                <div class="form-group mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="1" id="uni2" name="uni2" class="form-check-input select_all"
+                                        <check if="{{ @userep2.uni2 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="uni2"><img src="/assets/images/sims2/UNI.png" alt="University"
+                                                                                       data-mdb-toggle="tooltip" title="University"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="2" id="nl" name="nl" class="form-check-input select_all"
+                                        <check if="{{ @userep2.nl == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="nl"><img src="/assets/images/sims2/NL.png" alt="Nightlife"
+                                                                                      data-mdb-toggle="tooltip" title="Nightlife"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="3" id="ofb" name="ofb" class="form-check-input select_all"
+                                        <check if="{{ @userep2.ofb == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ofb"><img src="/assets/images/sims2/OFB.png" alt="Open For Business"
+                                                                                       data-mdb-toggle="tooltip" title="Open For Business"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="4" id="pets2" name="pets2" class="form-check-input select_all"
+                                        <check if="{{ @userep2.pets2 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="pets2"><img src="/assets/images/sims2/Pets.png" alt="Pets"
+                                                                                        data-mdb-toggle="tooltip" title="Pets"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="5" id="sns2" name="sns2" class="form-check-input select_all"
+                                        <check if="{{ @userep2.sns2 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sns2"><img src="/assets/images/sims2/Seasons.png" alt="Seasons"
+                                                                                       data-mdb-toggle="tooltip" title="Seasons"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="6" id="bv" name="bv" class="form-check-input select_all"
+                                        <check if="{{ @userep2.bv == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="bv"><img src="/assets/images/sims2/BV.png" alt="Bon Voyage"
+                                                                                      data-mdb-toggle="tooltip" title="Bon Voyage"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="7" id="ft" name="ft" class="form-check-input select_all"
+                                        <check if="{{ @userep2.ft == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ft"><img src="/assets/images/sims2/FT.png" alt="Free Time"
+                                                                                      data-mdb-toggle="tooltip" title="Free Time"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="8" id="al" name="al" class="form-check-input select_all"
+                                        <check if="{{ @userep2.al == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="al"><img src="/assets/images/sims2/AL.png" alt="Apartment Life"
+                                                                                      data-mdb-toggle="tooltip" title="Apartment Life"></label>
+                                    </div>
+                                    <!-- Select all -->
+                                    <div class="form-check form-check-inline">
+                                        <input id="select_all"
+                                               name="select_all"
+                                               class="form-check-input"
+                                               type="checkbox"
+                                        >
+                                        <label class="form-check-label" for="select_all"><img
+                                                src="/assets/images/sims2/The Sims 2 Ultimate Collection.png" alt="Ultimate Collection / All EPs"
+                                                data-mdb-toggle="tooltip" title="Ultimate Collection / All EPs"></label>
+                                    </div>
+                                </div>
+                                <!-- Sims 3 EPs -->
+                                <p class="mb-0">Sims 3 EPs owned</p>
+                                <div class="form-group mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="1" id="wa" name="wa" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.wa == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="wa">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/1. World Adventures (PNG).png" alt="World Adventures"
+                                                 data-mdb-toggle="tooltip" title="World Adventures">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="2" id="amb" name="amb" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.amb == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="amb">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/2. Ambitions (PNG).png" alt="Ambitions"
+                                                 data-mdb-toggle="tooltip" title="Ambitions">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="3" id="ln" name="ln" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.ln == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ln">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/3. Late Night (PNG).png" alt="Late Night"
+                                                 data-mdb-toggle="tooltip" title="Late Night">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="4" id="gns" name="gns" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.gns == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="gns">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/4. Generations (PNG).png" alt="Generations"
+                                                 data-mdb-toggle="tooltip" title="Generations">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="5" id="pets3" name="pets3" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.pets3 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="pets3">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/5. Pets (PNG).png" alt="Pets"
+                                                 data-mdb-toggle="tooltip" title="Pets">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="6" id="st" name="st" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.st == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="st">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/6. Showtime (PNG).png" alt="Showtime"
+                                                 data-mdb-toggle="tooltip" title="Showtime">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="7" id="sn" name="sn" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.sn == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sn">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/7.%20Supernatural%20(PNG).png" alt="Supernatural"
+                                                 data-mdb-toggle="tooltip" title="Supernatural">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="8" id="sns3" name="sns3" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.sns3 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sns3">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/8.%20Seasons%20(PNG).png" alt="Seasons"
+                                                 data-mdb-toggle="tooltip" title="Seasons">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="9" id="uni3" name="uni3" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.uni3 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="uni3">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/9.%20University%20Life%20(PNG).png" alt="University Life"
+                                                 data-mdb-toggle="tooltip" title="University Life">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="10" id="ip" name="ip" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.ip == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ip">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/10.%20Island%20Paradise%20(PNG).png" alt="Island Paradise"
+                                                 data-mdb-toggle="tooltip" title="Island Paradise">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="11" id="itf" name="itf" class="form-check-input select_all3"
+                                        <check if="{{ @userep3.itf == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="itf">
+                                            <img class="s3eps" src="/assets/images/sims3/Expansion Packs/11.%20Into%20The%20Future%20(PNG).png" alt="Into the Future"
+                                                 data-mdb-toggle="tooltip" title="Into the Future">
+                                        </label>
+                                    </div>
+                                    <!-- Select all -->
+                                    <div class="form-check form-check-inline">
+                                        <input id="select_all3"
+                                               name="select_all3"
+                                               class="form-check-input"
+                                               type="checkbox"
+                                        >
+                                        <label class="form-check-label" for="select_all3"><img
+                                                src="/assets/images/sims3/Base Game/The Sims 3 (PNG).png" class="s3eps" alt="All EPs"
+                                                data-mdb-toggle="tooltip" title="All EPs"></label>
+                                    </div>
+                                </div>
+                                <!-- Sims 4 EPs -->
+                                <p class="mb-0">Sims 4 EPs owned</p>
+                                <div class="form-group mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="1" id="gtw" name="gtw" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.gtw == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="gtw">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4GTW_Icon.png" alt="Get To Work"
+                                                 data-mdb-toggle="tooltip" title="Get To Work">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="2" id="gt" name="gt" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.gt == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="gt">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4GT_Icon.png" alt="Get Together"
+                                                 data-mdb-toggle="tooltip" title="Get Together">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="3" id="cl" name="cl" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.cl == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="cl">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_City_Living_Icon.png" alt="City Living"
+                                                 data-mdb-toggle="tooltip" title="City Living">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="4" id="pets4" name="pets4" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.pets4 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="pets4">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_Cats_and_Dogs_Icon.png" alt="Cats & Dogs"
+                                                 data-mdb-toggle="tooltip" title="Cats & Dogs">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="5" id="sns4" name="sns4" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.sns4 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sns4">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_Seasons_Icon.png" alt="Seasons"
+                                                 data-mdb-toggle="tooltip" title="Seasons">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="6" id="gf" name="gf" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.gf == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sns4">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP6_GF_Icon.png" alt="Get Famous"
+                                                 data-mdb-toggle="tooltip" title="Get Famous">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="7" id="il" name="il" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.il == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="il">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP7_Island_Living_Icon.png" alt="Island Living"
+                                                 data-mdb-toggle="tooltip" title="Island Living">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="8" id="uni4" name="uni4" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.uni4 == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="uni4">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP8_Discover_University_Icon.png" alt="Discover University"
+                                                 data-mdb-toggle="tooltip" title="Discover University">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="9" id="eco" name="eco" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.eco == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="eco">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP9_Eco_Lifestyle_Icon.png" alt="Eco Lifestyle"
+                                                 data-mdb-toggle="tooltip" title="Eco Lifestyle">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="10" id="se" name="se" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.se == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="se">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP10_Snowy_Escape_Icon.png" alt="Snowy Escape"
+                                                 data-mdb-toggle="tooltip" title="Snowy Escape">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="11" id="cot" name="cot" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.cot == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="cot">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_EP11_Cottage_Living_Icon.png" alt="Cottage Living"
+                                                 data-mdb-toggle="tooltip" title="Cottage Living">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="12" id="hsy" name="hsy" class="form-check-input select_all4"
+                                        <check if="{{ @userep4.hsy == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="cot">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_HighSchoolYears.png" alt="High School Years"
+                                                 data-mdb-toggle="tooltip" title="High School Years">
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Sims 4 GPs -->
+                                <p class="mb-0">Sims 4 GPs owned</p>
+                                <div class="form-group mb-3">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="1" id="otr" name="otr" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.otr == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="otr">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4OR_Icon.png" alt="Outdoor Retreat"
+                                                 data-mdb-toggle="tooltip" title="Outdoor Retreat">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="2" id="sd" name="sd" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.sd == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sd">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4SD_Icon.png" alt="Spa Day"
+                                                 data-mdb-toggle="tooltip" title="Spa Day">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="3" id="dno" name="dno" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.dno == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="dno">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4DO_Icon.png" alt="Dine Out"
+                                                 data-mdb-toggle="tooltip" title="Dine Out">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="4" id="vp" name="vp" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.vp == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="vp">
+                                            <img class="s4eps" src="/assets/images/sims4/The_Sims_4_Vampires_Icon.png" alt="Vampires"
+                                                 data-mdb-toggle="tooltip" title="Vampires">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="5" id="ph" name="ph" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.ph == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ph">
+                                            <img class="s4eps" src="/assets/images/sims4/Parenthood_Icon.png" alt="Parenthood"
+                                                 data-mdb-toggle="tooltip" title="Parenthood">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="6" id="ja" name="ja" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.ja == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ja">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4AT_Icon.png" alt="Jungle Adventure"
+                                                 data-mdb-toggle="tooltip" title="Jungle Adventure">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="7" id="sv" name="sv" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.sv == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="sv">
+                                            <img class="s4eps" src="/assets/images/sims4/The_Sims_4_StrangerVille_Icon.png" alt="StrangerVille"
+                                                 data-mdb-toggle="tooltip" title="StrangerVille">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="8" id="rom" name="rom" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.rom == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="rom">
+                                            <img class="s4eps" src="/assets/images/sims4/Realm_of_Magic_icon.png" alt="Realm of Magic"
+                                                 data-mdb-toggle="tooltip" title="Realm of Magic">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="9" id="jtb" name="jtb" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.jtb == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="jtb">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_GP9_Journey_to_Batuu_Icon.png" alt="Journey to Batuu"
+                                                 data-mdb-toggle="tooltip" title="Journey to Batuu">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="10" id="dhd" name="dhd" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.dhd == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="dhd">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_GP10_Dream_Home_Decorator_Icon.png" alt="Dream Home Decorator"
+                                                 data-mdb-toggle="tooltip" title="Dream Home Decorator">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="11" id="mws" name="mws" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.mws == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="mws">
+                                            <img class="s4eps" src="/assets/images/sims4/TS4_GP11_My_Wedding_Stories_Icon.png" alt="My Wedding Stories"
+                                                 data-mdb-toggle="tooltip" title="My Wedding Stories">
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="11" id="ww" name="ww" class="form-check-input select_all4"
+                                        <check if="{{ @usergp.ww == 1 }}">
+                                            checked
+                                        </check>
+                                        />
+                                        <label class="form-check-label" for="ww">
+                                            <img class="s4eps" src="/assets/images/sims4/Werewolves.png" alt="Werewolves"
+                                                 data-mdb-toggle="tooltip" title="Werewolves">
+                                        </label>
+                                    </div>
+                                    <!-- Select all -->
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" id="select_all4" name="select_all4"
+                                               class="form-check-input">
+                                        <label class="form-check-label" for="select_all4"><img
+                                                src="/assets/images/sims4/TS4_Icon.png" class="s4eps" alt="All EPs & GPs"
+                                                data-mdb-toggle="tooltip" title="All EPs & GPs"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hidden fields -->
+                        <input type="hidden" name="session_csrf" value="{{ @CSRF }}" />
+                        <input type="hidden" name="edit" value="edit" />
+                        <input type="hidden" name="id" value="{{ @SESSION.user_id }}" />
+                        <button type="submit" class="btn btn-primary mb-2">
+                            Update
+                        </button>
+                    </form>
+                </turbo-frame>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<script>
+    //select all checkboxes - https://stackoverflow.com/questions/18537609/how-to-check-all-checkboxes-using-jquery
+    $('#select_all').change(function () {
+        $('.select_all').prop('checked',this.checked);
+    });
+
+    $('.select_all').change(function () {
+        if ($('.select_all:checked').length === $('.select_all').length){
+            $('#select_all').prop('checked',true);
+        }
+        else {
+            $('#select_all').prop('checked',false);
+        }
+    });
+
+    $('#select_all3').change(function () {
+        $('.select_all3').prop('checked',this.checked);
+    });
+
+    $('.select_all3').change(function () {
+        if ($('.select_all3:checked').length === $('.select_all3').length){
+            $('#select_all3').prop('checked',true);
+        }
+        else {
+            $('#select_all3').prop('checked',false);
+        }
+    });
+
+    $('#select_all4').change(function () {
+        $('.select_all4').prop('checked',this.checked);
+    });
+
+    $('.select_all4').change(function () {
+        if ($('.select_all4:checked').length === $('.select_all4').length){
+            $('#select_all4').prop('checked',true);
+        }
+        else {
+            $('#select_all4').prop('checked',false);
+        }
+    });
+</script>

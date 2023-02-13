@@ -1,0 +1,7 @@
+Fri, 21 Oct 2022 15:29:54 +0000 [192.168.1.30] (7.7ms) INSERT INTO test (name) VALUES ('lk;lk;')
+Fri, 21 Oct 2022 15:31:03 +0000 [192.168.1.30] (2.8ms) INSERT INTO test (name) VALUES ('\';k\'k\'k')
+Fri, 21 Oct 2022 15:35:14 +0000 [192.168.1.30] (7.2ms) INSERT INTO test (name) VALUES ('lk;lk;l')
+Fri, 21 Oct 2022 15:37:52 +0000 [192.168.1.30] (7.3ms) INSERT INTO test (name) VALUES ('jlkjlkjl')
+Fri, 21 Oct 2022 15:52:48 +0000 [192.168.1.30] (7.0ms) INSERT INTO test (name) VALUES ('jljlkjjljlkjlkjlk')
+Fri, 21 Oct 2022 16:01:34 +0000 [192.168.1.30] (10.8ms) SHOW columns FROM `trackerrest`.`users`
+Fri, 21 Oct 2022 16:01:34 +0000 [192.168.1.30] (2.5ms) INSERT INTO test (name) VALUES ('four')

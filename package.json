@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@hotwired/turbo": "^7.2.4",
+    "jquery-validation": "^1.19.3",
+    "mdb-ui-kit": "^6.0.1"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
+    "postcss-import": "^15.0.0"
+  }
+}

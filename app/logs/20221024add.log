@@ -1,0 +1,2 @@
+Mon, 24 Oct 2022 13:44:26 +0000 [192.168.1.30] (6.8ms) INSERT INTO test (name) VALUES ('four')
+Mon, 24 Oct 2022 17:34:03 +0000 [192.168.1.59] (11.7ms) INSERT INTO test (name) VALUES ('test')

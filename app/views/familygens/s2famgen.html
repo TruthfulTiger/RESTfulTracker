@@ -1,0 +1,1570 @@
+<!-- EPs -->
+<p>Which expansions do you own?</p>
+<div class="form-group mb-3">
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="1" id="uni" name="uni" class="form-check-input select_all s2eps"
+		<check if="{{ @user.uni == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="uni"><img src="/assets/images/sims2/UNI.png" alt="University"
+													   data-mdb-toggle="tooltip" title="University"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="2" id="nl" name="nl" class="form-check-input select_all s2eps"
+		<check if="{{ @user.nl == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="nl"><img src="/assets/images/sims2/NL.png" alt="Nightlife"
+													  data-mdb-toggle="tooltip" title="Nightlife"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="3" id="ofb" name="ofb" class="form-check-input select_all s2eps"
+		<check if="{{ @user.ofb == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="ofb"><img src="/assets/images/sims2/OFB.png" alt="Open For Business"
+													   data-mdb-toggle="tooltip" title="Open For Business"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="4" id="pets" name="pets" class="form-check-input select_all s2eps"
+		<check if="{{ @user.pets == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="pets"><img src="/assets/images/sims2/Pets.png" alt="Pets"
+														data-mdb-toggle="tooltip" title="Pets"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="5" id="sns" name="sns" class="form-check-input select_all s2eps"
+		<check if="{{ @user.sns == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="sns"><img src="/assets/images/sims2/Seasons.png" alt="Seasons"
+													   data-mdb-toggle="tooltip" title="Seasons"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="6" id="bv" name="bv" class="form-check-input select_all s2eps"
+		<check if="{{ @user.bv == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="bv"><img src="/assets/images/sims2/BV.png" alt="Bon Voyage"
+													  data-mdb-toggle="tooltip" title="Bon Voyage"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="7" id="ft" name="ft" class="form-check-input select_all s2eps"
+		<check if="{{ @user.ft == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="ft"><img src="/assets/images/sims2/FT.png" alt="Free Time"
+													  data-mdb-toggle="tooltip" title="Free Time"></label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" value="8" id="al" name="al" class="form-check-input select_all s2eps"
+		<check if="{{ @user.al == 1 }}">
+			checked
+		</check>
+		/>
+		<label class="form-check-label" for="al"><img src="/assets/images/sims2/AL.png" alt="Apartment Life"
+													  data-mdb-toggle="tooltip" title="Apartment Life"></label>
+	</div>
+	<!-- Select all -->
+	<div class="form-check form-check-inline">
+		<input id="select_all"
+			   name="select_all"
+			   class="form-check-input"
+			   type="checkbox"
+		>
+		<label class="form-check-label" for="select_all"><img
+				src="/assets/images/sims2/The Sims 2 Ultimate Collection.png" alt="Ultimate Collection / All EPs"
+				data-mdb-toggle="tooltip" title="Ultimate Collection / All EPs"></label>
+	</div>
+</div>
+
+<!-- Number of Sims -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label for="numberSims" class="form-label">Number of Sims</label>
+			<div class="input-group mb-3">
+				<input type="number" class="form-control" value="1" min="1" max="8" id="numberSims" name="numberSims"/>
+				<div class="input-group-append">
+					<button class="btn btn-info" type="button" id="randomSims" onclick="randomSims();">Random
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<p>At least one:</p>
+			<div class="form-check form-check-inline">
+				<input type="radio" id="minTeen" value="minTeen" name="minAge" class="form-check-input">
+				<label class="form-check-label" for="minTeen">Teen</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="radio" id="minAdult" value="minAdult" checked name="minAge" class="form-check-input">
+				<label class="form-check-label" for="minAdult">Adult</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="radio" id="minElder" value="minElder" name="minAge" class="form-check-input">
+				<label class="form-check-label" for="minElder">Elder</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="radio" id="minAny" value="minAny" name="minAge" class="form-check-input">
+				<label class="form-check-label" for="minAny">Any age</label>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Genetics -->
+<div class="form-group mb-3">
+	<h6>Genetics</h6>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="age" name="age" class="form-check-input">
+		<label class="form-check-label" for="age">Age</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="gender" name="gender" class="form-check-input">
+		<label class="form-check-label" for="gender">Gender</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="skin" name="skin" class="form-check-input">
+		<label class="form-check-label" for="skin">Skintone</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="hair" name="hair" class="form-check-input">
+		<label class="form-check-label" for="hair">Hair</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="eyes" name="eyes" class="form-check-input">
+		<label class="form-check-label" for="eyes">Eyes</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="zodiac" name="zodiac" class="form-check-input">
+		<label class="form-check-label" for="zodiac">Zodiac</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="personality" name="personality" class="form-check-input">
+		<label class="form-check-label" for="personality">Personality</label>
+	</div>
+</div>
+
+<!-- Visuals -->
+<h6>Visuals</h6>
+<!-- Fitness -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="fitness" type="checkbox" value="" aria-label="Checkbox for fitness" />
+			</div>
+			<span class="input-group-text">Chance of fatness</span>
+			<input type="number" id="fatnessChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of fatness">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Facial hair -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="facialHair" type="checkbox" value="" aria-label="Checkbox for facial hair" />
+			</div>
+			<span class="input-group-text">Chance of facial hair</span>
+			<input type="number" id="facialHairChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of facial hair">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Glasses -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="glasses" type="checkbox" value="" aria-label="Checkbox for glasses" />
+			</div>
+			<span class="input-group-text">Chance of glasses</span>
+			<input type="number" id="glassesChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of glasses">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Hats -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="hats" type="checkbox" value="" aria-label="Checkbox for hats" />
+			</div>
+			<span class="input-group-text">Chance of hats</span>
+			<input type="number" id="hatsChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of hats">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Make-up -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="makeUp" type="checkbox" value="" aria-label="Checkbox for make-up" />
+			</div>
+			<span class="input-group-text">Chance of make-up</span>
+			<input type="number" id="makeUpChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of make-up">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Supernatural -->
+<div class="row">
+	<div class="col-md-8">
+		<div class="input-group mb-3">
+			<div class="input-group-text">
+				<input class="form-check-input mt-0" id="supernatural" type="checkbox" value="" aria-label="Checkbox for supernatural" />
+			</div>
+			<span class="input-group-text">Chance of supernatural</span>
+			<input type="number" id="supernaturalChance" min="0" max="100" value="20" class="form-control"
+				   aria-label="Percentage of supernatural">
+			<div class="input-group-append">
+				<span class="input-group-text">%</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row supernaturals mb-3">
+	<div class="col">
+		<div class="form-group">
+			<div class="form-check form-check-inline">
+				<input type="checkbox" value="1" id="zombie" name="zombie" class="form-check-input">
+				<label class="form-check-label" for="zombie"><img src="/assets/images/sims2/zombie_small.png"
+																  data-mdb-toggle="tooltip"
+																  title="Zombie"
+																  loading="lazy"
+																  alt="Zombie"/></label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" value="1" id="vampire" name="vampire" class="form-check-input">
+				<label class="form-check-label" for="vampire"><img src="/assets/images/sims2/vampire_small.png"
+																   data-mdb-toggle="tooltip"
+																   title="Vampire"
+																   loading="lazy"
+																   alt="Vampire"/></label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" value="1" id="werewolf" name="werewolf" class="form-check-input">
+				<label class="form-check-label" for="werewolf"><img src="/assets/images/sims2/werewolf_small.png"
+																	data-mdb-toggle="tooltip"
+																	title="Werewolf"
+																	loading="lazy"
+																	alt="Werewolf"/></label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" value="1" id="plantSim" name="plantSim" class="form-check-input">
+				<label class="form-check-label" for="plantSim"><img src="/assets/images/sims2/plant_small.png"
+																	data-mdb-toggle="tooltip"
+																	title="Plant Sim"
+																	loading="lazy"
+																	alt="Plant Sim"/></label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" value="1" id="witch" name="witch" class="form-check-input">
+				<label class="form-check-label" for="witch"><img src="/assets/images/sims2/witch_small.png"
+																 data-mdb-toggle="tooltip"
+																 title="Witch"
+																 loading="lazy"
+																 alt="Witch"/></label>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Aspirations etc -->
+<div class="form-group mb-3">
+	<h6>Aspirations, career and hobbies</h6>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="aspiration" name="aspiration" class="form-check-input">
+		<label class="form-check-label" for="aspiration">Aspiration</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="secondAsp" name="secondAsp" class="form-check-input">
+		<label class="form-check-label" for="secondAsp">Secondary Aspiration</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="career" name="career" class="form-check-input">
+		<label class="form-check-label" for="career">Career</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="hobby" name="hobby" class="form-check-input">
+		<label class="form-check-label" for="hobby">Predestined Hobby</label>
+	</div>
+</div>
+
+<!-- Chemistry -->
+<div class="form-group">
+	<h6>Turn-ons and gender preference</h6>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="tocheck" name="turnons" class="form-check-input">
+		<label class="form-check-label" for="tocheck">Turn-ons and turn-offs</label>
+	</div>
+	<div class="form-check form-check-inline">
+		<input type="checkbox" id="preference" name="preference" class="form-check-input">
+		<label class="form-check-label" for="preference">Gender preference</label>
+	</div>
+</div>
+<div class="input-group mb-3 preference">
+	<div class="input-group-prepend">
+		<span class="input-group-text">Percentage of straight, gay and bi</span>
+	</div>
+	<input type="number" id="straight" min="0" max="100" value="75" aria-label="Straight" class="form-control">
+	<input type="number" id="gay" min="0" max="100" value="15" aria-label="Gay" class="form-control">
+	<input type="number" id="bi" min="0" max="100" value="10" aria-label="Bi" class="form-control">
+	<div class="input-group-append">
+		<span class="input-group-text">%</span>
+	</div>
+</div>
+<button class="btn btn-success mb-3" id="sims2gen">Randomise</button>
+
+<!-- Results display -->
+<turbo-frame id="results" loading="lazy">
+<div class="card text-center mb-3" id="sim1">
+		<div class="card-header">
+			<h6><span id="personality1"></span></h6>
+		</div>
+		<div class="card-body">
+			<div class="row mb-2">
+				<div class="col">
+					<img id="age1" src="/assets/images/sims2/AgeNull.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="gender1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="skintone1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="hair1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="eyes1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="zodiac1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="body1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+				<div class="col">
+					<img id="lifeState1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy"/>
+				</div>
+			</div>
+			<div class="row mb-2">
+				<div class="col">
+					<img id="hat1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="glasses1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="facialHair1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="makeUp1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="aspiration1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="secondAsp1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="career1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="hobby1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<img id="preference1" src="/assets/images/sims2/pref_null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="ton11" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="ton21" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+				<div class="col">
+					<img id="toff1" src="/assets/images/sims2/Null.png"
+						 alt=""
+						 title=""
+						 data-mdb-toggle="tooltip"
+						 loading="lazy" />
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="card text-center mb-3" id="sim2">
+	<div class="card-header">
+		<h6><span id="personality2"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age2" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses2" src="/assets/images/sims2/Null.png" alt="">
+			</div>
+			<div class="col">
+				<img id="facialHair2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby2" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference2" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton12" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton22" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff2" src="/assets/images/sims2/Null.png"
+					 alt=""/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim3">
+	<div class="card-header">
+		<h6><span id="personality3"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age3" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference3" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton13" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton23" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff3" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim4">
+	<div class="card-header">
+		<h6><span id="personality4"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age4" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference4" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton14" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton24" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff4" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim5">
+	<div class="card-header">
+		<h6><span id="personality5"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age5" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career5" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby5" src="/assets/images/sims2/Null.png" alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference5" src="/assets/images/sims2/pref_null.png" alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton15" src="/assets/images/sims2/Null.png" alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton25" src="/assets/images/sims2/Null.png" alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff5" src="/assets/images/sims2/Null.png" alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim6">
+	<div class="card-header">
+		<h6><span id="personality6"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age6" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference6" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton16" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton26" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff6" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim7">
+	<div class="card-header">
+		<h6><span id="personality7"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age7" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby7" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference7" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton17" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton27" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff7" src="/assets/images/sims2/Null.png"
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"
+					 alt=""/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card text-center mb-3" id="sim8">
+	<div class="card-header">
+		<h6><span id="personality8"></span></h6>
+	</div>
+	<div class="card-body">
+		<div class="row mb-2">
+			<div class="col">
+				<img id="age8" src="/assets/images/sims2/AgeNull.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="gender8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="skintone8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hair8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="eyes8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="zodiac8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="body8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="lifeState8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col">
+				<img id="hat8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="glasses8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="facialHair8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="makeUp8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="aspiration8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="secondAsp8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="career8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="hobby8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<img id="preference8" src="/assets/images/sims2/pref_null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton18" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="ton28" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+			<div class="col">
+				<img id="toff8" src="/assets/images/sims2/Null.png"
+					 alt=""
+					 title=""
+					 data-mdb-toggle="tooltip"
+					 loading="lazy"/>
+			</div>
+		</div>
+	</div>
+</div>
+</turbo-frame>
+
+<script type="text/javascript">s2path = '/assets/images/sims2/';</script>
+
+<script src="/assets/js/families.min.js"></script>
+<script src="/assets/js/randomiser.min.js"></script>

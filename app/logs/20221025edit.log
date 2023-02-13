@@ -1,0 +1,7 @@
+Tue, 25 Oct 2022 10:55:16 +0000 [192.168.1.30] (3.1ms) SHOW columns FROM `trackerrest`.`users`
+Tue, 25 Oct 2022 10:55:16 +0000 [192.168.1.30] (8.9ms) UPDATE test SET name = 'test' WHERE id = '1'
+Tue, 25 Oct 2022 10:58:43 +0000 [192.168.1.30] (7.5ms) UPDATE test SET name = 'testing' WHERE id = '1'
+Tue, 25 Oct 2022 10:59:27 +0000 [192.168.1.30] (7.5ms) UPDATE test SET name = 'test' WHERE id = '1'
+Tue, 25 Oct 2022 10:59:33 +0000 [192.168.1.30] (7.6ms) UPDATE test SET name = 'testing' WHERE id = '1'
+Tue, 25 Oct 2022 11:00:41 +0000 [192.168.1.30] (7.3ms) UPDATE test SET name = 'test' WHERE id = '2'
+Tue, 25 Oct 2022 11:00:46 +0000 [192.168.1.30] (8.0ms) UPDATE test SET name = 'one' WHERE id = '2'

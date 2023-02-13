@@ -1,0 +1,138 @@
+<!--Main layout-->
+<main role="main" class="container">
+    <div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+        <div class="row">
+            <div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+                <h1>{{ @title }}</h1>
+                <turbo-frame id="account">
+                <form method="post" action="/user/account">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="d-block" for="theme">Theme</label>
+                            <select class="select" id="theme" name="theme">
+                                <option value="light"
+                                <check if="{{ @user.theme == 'light' }}">
+                                    selected
+                                </check>
+                                >Light</option>
+                                <option value="dark"
+                                <check if="{{ @user.theme == 'dark' }}">
+                                    selected
+                                </check>
+                                >Dark</option>
+                            </select>
+                            <label class="d-block mt-3" for="timeFormat">Time format</label>
+                            <select class="select" id="timeFormat" name="timeFormat">
+                                <option value="12"
+                                <check if="{{ @user.timeFormat == 12 }}">
+                                    selected
+                                </check>
+                                >12 hour</option>
+                                <option value="24"
+                                <check if="{{ @user.timeFormat == 24 }}">
+                                    selected
+                                </check>
+                                >24 hour</option>
+                            </select>
+                            <label class="d-block mt-3" for="dateFormat">Date format</label>
+                            <select class="select" id="dateFormat" name="dateFormat">
+                                <repeat group="{{@dateformats}}" key="{{@df}}" value="{{@format}}">
+                                    <option value="{{@df}}"
+                                    <check if="{{ @user.dateFormat == @df }}">
+                                        selected
+                                    </check>
+                                    >{{trim(@format)}}</option>
+                                </repeat>
+                            </select>
+                            <label class="d-block mt-3" for="timezone">Timezone</label>
+                            <select class="select" id="timezone" name="timezone">
+                                <repeat group="{{@timezones}}" key="{{@tz}}" value="{{@zone}}">
+                                    <option value="{{@tz}}"
+                                    <check if="{{ @user.timezone == @tz }}">
+                                        selected
+                                    </check>
+                                    >{{trim(@zone)}}</option>
+                                </repeat>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="session_csrf" value="{{ @CSRF }}" />
+                    <input type="hidden" name="edit" value="edit" />
+                    <input type="hidden" name="id" value="{{ @SESSION.user_id }}" />
+                    <button type="submit" class="btn btn-primary mb-2">
+                        Update
+                    </button>
+                </form>
+                </turbo-frame>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main layout-->
+<script>
+    let tz = '';
+    let $select = $('#timezone');
+    //select all checkboxes - https://stackoverflow.com/questions/18537609/how-to-check-all-checkboxes-using-jquery
+    $('#select_all').change(function () {
+        $('.select_all').prop('checked',this.checked);
+    });
+
+    $('.select_all').change(function () {
+        if ($('.select_all:checked').length === $('.select_all').length){
+            $('#select_all').prop('checked',true);
+        }
+        else {
+            $('#select_all').prop('checked',false);
+        }
+    });
+
+    $('#select_all3').change(function () {
+        $('.select_all3').prop('checked',this.checked);
+    });
+
+    $('.select_all3').change(function () {
+        if ($('.select_all3:checked').length === $('.select_all3').length){
+            $('#select_all3').prop('checked',true);
+        }
+        else {
+            $('#select_all3').prop('checked',false);
+        }
+    });
+
+    $('#select_all4').change(function () {
+        $('.select_all4').prop('checked',this.checked);
+    });
+
+    $('.select_all4').change(function () {
+        if ($('.select_all4:checked').length === $('.select_all4').length){
+            $('#select_all4').prop('checked',true);
+        }
+        else {
+            $('#select_all4').prop('checked',false);
+        }
+    });
+
+    $(function() {
+        /*$.ajax({
+        method: 'GET',
+        url: '../assets/json/timezones.json',
+        dataType: 'json',
+        success: function (data) {
+            let usertz = '{{@user.timezone}}';
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].utc[0] === usertz) {
+                    tz += '<option value=' + data[i].utc[0] +' selected >' + data[i].text + '</option>';
+                } else {
+                    tz += '<option value=' + data[i].utc[0] +'>' + data[i].text + '</option>';
+                }
+            }
+            $select.append(tz);
+            console.log(data[3].utc[0]);
+        },
+        error: function (result) {
+            console.log(data);
+        }
+    });*/
+    });
+</script>

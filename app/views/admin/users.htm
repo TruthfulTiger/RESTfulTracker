@@ -1,0 +1,50 @@
+<!--Main layout-->
+<main role="main" class="container">
+	<div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+		<div class="row">
+			<div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+				<div class="row">
+					<div class="col-md-12">
+						<h1>{{ @i18n_users }}</h1>
+						<!--Section: Content-->
+						<section>
+				<div class="datatable" data-mdb-clickable-rows="true" data-mdb-sm="true" data-mdb-hover="true" data-mdb-bordered="true" id="users">
+					<table>
+						<thead>
+						<tr>
+							<th scope="col">username</th>
+							<th scope="col">usertype</th>
+							<th scope="col">created_at</th>
+							<th scope="col">updated_at</th>
+						</tr>
+						</thead>
+						<tbody>
+						<repeat group="{{ @users }}" value="{{ @user }}">
+							<tr>
+								<td>{{ @user.username }}</td>
+								<td><check if="@user.user_type===100"><true><em>Administrator</em></true>
+									<false><check if="@user.user_type===10"><true><em>Superuser</em></true><false>Standard User</false></check></false></check></td>
+								<td>{{ @user.created_at }}</td>
+								<td>{{ @user.updated_at}}</td>
+							</tr>
+						</repeat>
+						</tbody>
+					</table>
+				</div>
+			</section>
+						<!--Section: Content-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<!--Main layout-->
+<script>
+	const table = document.getElementById('users');
+
+	table.addEventListener('rowClick.mdb.datatable', (e) => {
+		const { index } = e;
+		window.document.location='/admin/users/{{ @user.id }}';
+	});
+</script>

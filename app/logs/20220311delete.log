@@ -1,0 +1,1 @@
+Fri, 11 Mar 2022 10:47:04 +0000 [192.168.1.30] (8.6ms) DELETE FROM hours WHERE id='35'

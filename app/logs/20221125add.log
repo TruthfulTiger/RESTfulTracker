@@ -1,0 +1,6 @@
+Fri, 25 Nov 2022 21:13:34 +0000 [192.168.1.59] (8.3ms) INSERT INTO test (name) VALUES ('three')
+Fri, 25 Nov 2022 21:15:37 +0000 [192.168.1.59] (7.4ms) INSERT INTO test (name) VALUES ('testing')
+Fri, 25 Nov 2022 21:15:47 +0000 [192.168.1.59] (7.5ms) INSERT INTO test (name) VALUES ('one')
+Fri, 25 Nov 2022 21:15:54 +0000 [192.168.1.59] (7.5ms) INSERT INTO test (name) VALUES ('tow')
+Fri, 25 Nov 2022 21:32:37 +0000 [192.168.1.59] (11.4ms) SHOW columns FROM `trackerrest`.`users`
+Fri, 25 Nov 2022 21:32:37 +0000 [192.168.1.59] (3.5ms) INSERT INTO test (name) VALUES ('three')

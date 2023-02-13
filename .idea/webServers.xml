@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e7e9fa40-f5ed-42f1-ab25-b2c315ad55fe" name="pdasites.uk" url="https://pdasites.uk">
+        <fileTransfer host="pdasites.uk" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="b88b84c3-c664-427a-bf29-5925eb6563e5" name="firebird-online" url="https://restfultracker.pdasites.uk">
+        <fileTransfer rootFolder="/var/www/restfultracker.pdasites.uk/html" accessType="SFTP" host="192.99.44.81" port="22" sshConfigId="6a3891ab-b826-4c2f-86d3-0aab83db3bae" sshConfig="almalinux@192.99.44.81:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

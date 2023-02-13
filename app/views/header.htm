@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>{{@title}} | {{@site}}</title>
+	<!-- MDB icon -->
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+	<!-- Google Fonts Roboto -->
+	<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+	/>
+	<!-- Custom styles -->
+	<link rel="stylesheet" id="mdb" href="{{@mdbcss}}" />
+	<link rel="stylesheet" id="theme" href="{{@stylecss}}"/>
+	<link rel="stylesheet" href="/assets/css/mdb/all.min.css" />
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://malsup.github.io/jquery.form.js" async></script>
+	<!-- AlpineJS -->
+	<script src="//unpkg.com/alpinejs" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" async></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+	<script type="text/javascript" src="/assets/js/wNumb.min.js" defer></script>
+	<!-- Datatables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/sl-1.5.0/datatables.min.css" media="print" onload="this.media='all'"/>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" defer></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" defer></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/sl-1.5.0/datatables.min.js"></script>
+	<script>
+		// Theme change
+		let btn = document.getElementById('themeBtn');
+		let themecss = document.getElementById('theme');
+		let mdb = document.getElementById('mdb');
+		let theme = 'light';
+
+		// Listen for a click on the button
+		function themeToggle() {
+			// Toggle the .dark-theme class on the body
+			document.body.classList.toggle("dark-theme");
+
+			// Let's say the theme is equal to light
+			// If the body contains the .dark-theme class...
+			if (document.body.classList.contains("dark-theme")) {
+				// ...then let's make the theme dark
+				mdb.setAttribute('href', '/assets/css/mdb/mdb.dark.min.css');
+				themecss.setAttribute('href', '/assets/css/style.dark.min.css');
+				$('#themeBtn').html('<button type="button" class="btn btn-floating btn-light me-2" data-mdb-ripple-color="dark" onclick="themeToggle();">' +
+						'<i aria-hidden="true" class="fas fa-sun" title="Switch to light"></i>' +
+						'<span class="visually-hidden">Switch to light</span>' +
+						'</button>');
+				theme = 'dark';
+			} else {
+				// Otherwise, make the theme light
+				mdb.setAttribute('href', '/assets/css/mdb/mdb.min.css');
+				themecss.setAttribute('href', '/assets/css/style.min.css');
+				$('#themeBtn').html('<button type="button" class="btn btn-floating btn-dark me-2" data-mdb-ripple-color="dark" onclick="themeToggle();">' +
+						'<i aria-hidden="true" class="fas fa-moon" title="Switch to dark"></i>' +
+						'<span class="visually-hidden">Switch to dark</span>' +
+						'</button>');
+			}
+			// Then save the choice in a cookie
+			document.cookie = "theme=" + theme;
+		}
+	</script>
+	<!-- Hotwire Turbo -->
+	<script src="https://cdn.skypack.dev/pin/@hotwired/turbo@v7.2.4-ZifPufG8LWXS2LFpHP7B/mode=imports,min/optimized/@hotwired/turbo.js"/>
+		<!-- Custom scripts -->
+	<script type="text/javascript" data-turbo-eval="false" src="/assets/js/index.js"></script>
+</head>
+
+<body class="bg-dark bg">
+<!-- Start your project here-->
+<header class="mb-7">
+	<include if="{{isset(@SESSION.logged_in) && @SESSION.logged_in}}" href="usermenu.html" >
+	</include>
+	<div class="container-fluid">    <!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+			<div class="container">
+				<button
+						class="navbar-toggler"
+						type="button"
+						data-mdb-toggle="collapse"
+						data-mdb-target="#navbarExample01"
+						aria-controls="navbarExample01"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+				>
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse turbo-progress-bar" id="navbarExample01">
+					<a class="navbar-brand me-2" href="#"><h3 class="title">{{@site}}</h3></a>
+					<ul class="navbar-nav d-flex flex-row align-items-center me-auto mb-2 mb-lg-0 ">
+						<li
+						<F3:check if="{{ @title == 'Tutorial page' }}">
+							<<F3:true>
+							class="nav-item me-3 me-lg-1 active"
+						</F3:true>
+							<F3:false>
+								class="nav-item me-3 me-lg-1"
+							</F3:false>
+						</F3:check>>
+						<a class="nav-link" href="/"
+						<F3:check if="{{ @title == 'Tutorial page' }}">
+							aria-current="page"
+						</F3:check>>
+						<i aria-hidden="true" data-mdb-toggle="tooltip" class="fas fa-home" title="Home"></i>
+						<span class="visually-hidden">Home</span></a>
+						</li>
+						<!-- Dropdown -->
+						<li class="nav-item dropdown me-3 me-lg-1">
+							<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="toolsmenu"
+									role="button"
+									data-mdb-toggle="dropdown"
+									aria-expanded="false"
+							><i aria-hidden="true" data-mdb-toggle="tooltip" class="fas fa-toolbox" title="Tools"></i>
+								<span class="visually-hidden">Tools</span></a>
+							<ul class="dropdown-menu" aria-labelledby="toolsmenu">
+								<li>
+									<a class="dropdown-item" href="{{ @BASE.'/names' }}">Name Generator</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ @BASE.'/aspgen' }}">Aspiration Randomiser</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ @BASE.'/families' }}">Family Randomiser</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="navbar-nav ms-auto align-items-center">
+						<li>
+							<div id="themeBtn">
+								<check if="{{@theme}} = 'dark'">
+									<true>
+										<button type="button" class="btn btn-floating btn-light me-2" data-mdb-ripple-color="dark" onclick="themeToggle();">
+											<i aria-hidden="true" class="fas fa-sun" title="Switch to light"></i>
+											<span class="visually-hidden">Switch to light</span>
+									</true>
+									<false>
+										<button type="button" class="btn btn-floating btn-dark me-2" data-mdb-ripple-color="dark" onclick="themeToggle();">
+											<i aria-hidden="true" class="fas fa-moon" title="Switch to dark"></i>
+											<span class="visually-hidden">Switch to dark</span>
+										</button>
+									</false>
+								</check>
+							</div>
+						</li>
+						<!-- Avatar -->
+						<check if="{{ isset(@SESSION.logged_in) && @SESSION.logged_in }}">
+							<true>
+								<!-- Toggler -->
+								<button data-mdb-toggle="sidenav" data-mdb-target="#sidenav-1" class="btn shadow-0 p-0 me-3 d-block d-xxl-none"
+										aria-controls="#sidenav-1" aria-haspopup="true">
+									<i class="fas fa-bars fa-lg"></i>
+								</button>
+								<li class="nav-item me-3 me-lg-1">
+									<a
+											class="nav-link d-flex align-items-center"
+											href="#"
+											role="button"
+											aria-expanded="false"
+											data-mdb-toggle="sidenav"
+											data-mdb-target="#sidenav-1"
+											aria-controls="#sidenav-1"
+											aria-label="Toggle user menu"
+											aria-haspopup="true"
+									>
+										<img
+												src="{{@user.image}}"
+												class="rounded-circle me-1"
+												height="22"
+												alt="User Avatar"
+												title="Toggle user menu"
+												loading="lazy"
+												data-mdb-toggle="tooltip"
+										/>
+										<i class="fas fa-caret-right fa-sm" title="Toggle user menu"></i><span class="visually-hidden">Toggle user menu</span></a>
+									</a>
+								</li>
+								<!-- Logout -->
+								<li class="nav-item me-3 me-lg-1">
+									<a class="nav-link" href="{{ @BASE.'/logout' }}"><i aria-hidden="true" data-mdb-toggle="tooltip" class="fas fa-sign-out-alt" title="Logout"></i>
+										<span class="visually-hidden">Logout</span></a>
+								</li>
+							</true>
+							<false>
+								<!-- Login -->
+								<li class="nav-item me-3 me-lg-1">
+									<a class="nav-link" href="{{ @BASE.'/login' }}"><i aria-hidden="true" data-mdb-toggle="tooltip" class="fas fa-sign-in-alt" title="{{ @i18n_login }}"></i>
+										<span class="visually-hidden">{{ @i18n_login }}</span></a>
+								</li>
+								<!-- Register -->
+								<li class="nav-item me-3 me-lg-1">
+									<a class="nav-link" href="{{ @BASE.'/register' }}"><i aria-hidden="true" data-mdb-toggle="tooltip" class="fas fa-user-plus" title="{{ @i18n_register }}"></i>
+										<span class="visually-hidden">{{ @i18n_register }}</span></a>
+								</li>
+							</false>
+						</check>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Navbar -->
+	</div>
+</header>
+<F3:include href="flash.html" />

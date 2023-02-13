@@ -1,0 +1,4 @@
+Fri, 21 Oct 2022 15:57:49 +0000 [192.168.1.30] (7.3ms) UPDATE test SET name = 'testing' WHERE id = 1
+Fri, 21 Oct 2022 15:59:26 +0000 [192.168.1.30] (7.9ms) UPDATE test SET name = 'one' WHERE id = '2'
+Fri, 21 Oct 2022 16:00:36 +0000 [192.168.1.30] (7.7ms) UPDATE test SET name = 'two' WHERE id = '3'
+Fri, 21 Oct 2022 16:00:43 +0000 [192.168.1.30] (7.9ms) UPDATE test SET name = 'three' WHERE id = '4'

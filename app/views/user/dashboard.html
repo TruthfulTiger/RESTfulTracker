@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Sims Tracker | Dashboard</title>
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="css/mdb.dark.min.css" media="(prefers-color-scheme: dark)"  />
+  <!-- MDB PLUGINS -->
+  <link rel="stylesheet" href="plugins/css/all.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="css/style.dark.css" media="(prefers-color-scheme: dark)" />
+</head>
+<body>
+<header>
+    <!-- Sidenav -->
+    <nav id="sidenav-1" class="sidenav" data-mdb-hidden="false" data-mdb-accordion="true" data-mdb-color="light" style="background-color: #1266f1;">
+        <a class="ripple d-flex justify-content-center py-4" href="#!" data-mdb-ripple-color="primary">
+            <h2 class="title text-light">Sims Tracker</h2>
+        </a>
+
+        <ul class="sidenav-menu">
+            <li class="sidenav-item">
+                <a class="sidenav-link" href="">
+                    <i class="fas fa-tachometer-alt fa-fw me-3" aria-hidden="true"></i><span>Main dashboard</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link"><i class="fas fa-cogs fa-fw me-3" aria-hidden="true"></i><span>Settings</span></a>
+                <ul class="sidenav-collapse">
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Profile</a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Account</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link"><i class="fas fa-lock fa-fw me-3" aria-hidden="true"></i><span>Password</span></a>
+                <ul class="sidenav-collapse">
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Request password</a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Reset password</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidenav-item">
+                <a class="sidenav-link"><i class="fas fa-dice fa-fw me-3" aria-hidden="true"></i><span>Game data</span></a>
+                <ul class="sidenav-collapse">
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Request password</a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Reset password</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidenav-item">
+                <a class="sidenav-link"><i class="fas fa-tools fa-fw me-3" aria-hidden="true"></i><span>Admin tools</span></a>
+                <ul class="sidenav-collapse">
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Request password</a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Reset password</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- Sidenav -->
+    <!--Main Navigation-->
+    <div data-includeHTML="_HeaderPartial.html"></div>
+</header>
+<!--Main layout-->
+<main style="margin-top: 58px">
+  <div class="container pt-4">
+    <div data-includeHTML="_DashPartial.html"></div>
+  </div>
+</main>
+<!--Main layout-->
+    <div data-includeHTML="_FooterPartial.html"></div>
+</body>
+
+<!-- MDB ESSENTIAL -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- MDB PLUGINS -->
+<script type="text/javascript" src="plugins/js/all.min.js"></script>
+<!-- Custom scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("div[data-includeHTML]").each(function () {
+      $(this).load($(this).attr("data-includeHTML"));
+    });
+  });
+</script>
+</html>
+

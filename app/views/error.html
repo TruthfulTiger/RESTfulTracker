@@ -1,0 +1,59 @@
+<include href="header.htm" />
+<main role="main" class="container">
+	<div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+		<div class="row">
+			<div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+				<!--Section: Block Content-->
+				<section class="my-5 text-center">
+					<h1 class="display-1">{{ @ERROR.code }}</h1>
+
+					<switch expr="{{ @ERROR.code }}">
+						<case value="400" break="{{ TRUE }}">
+							<h4 class="mb-4">Bad Request</h4>
+							<p class="mb-4">We can't tell what you're trying to do. Try clearing your browser's cache and cookies, and try again.</p>
+						</case>
+						<case value="401" break="{{ TRUE }}">
+							<h4 class="mb-4">Unauthorised</h4>
+							<p class="mb-4">{{ @i18n_401 }}</p>
+							<a class="btn btn-primary mb-4" href="/login" role="button">Log in</a>
+						</case>
+						<case value="403" break="{{ TRUE }}">
+							<h4 class="mb-4">Forbidden</h4>
+							<p class="mb-4">{{ @i18n_403 }}</p>
+							<a class="btn btn-primary mb-4" href="/login" role="button">Log in</a>
+						</case>
+						<case value="404" break="{{ TRUE }}">
+							<h4 class="mb-4">Page not found</h4>
+							<p class="mb-4">{{ @i18n_404 }}</p>
+							<a class="btn btn-primary mb-4" href="/" role="button">Go back to the homepage</a>
+						</case>
+						<case value="405" break="{{ TRUE }}">
+							<h4 class="mb-4">Method not allowed</h4>
+							<p class="mb-4">{{ @i18n_405 }}</p>
+							<a class="btn btn-primary mb-4" href="/" role="button">Go back to the homepage</a>
+						</case>
+						<case value="500" break="{{ TRUE }}">
+							<h4 class="mb-4">Internal Server Error</h4>
+							<p class="mb-4">{{ @i18n_500 }}</p>
+							<a class="btn btn-primary mb-4" href="/" role="button">Go back to the homepage</a>
+						</case>
+
+						<default>
+							<h4 class="mb-4">{{ @i18n_errorpage_header }}</h4>
+							<p class="mb-4">{{ @i18n_othererror }}</p>
+							<a class="btn btn-primary mb-4" href="/" role="button">Go back to the homepage</a>
+						</default>
+					</switch>
+					<p class="mb-4">If this problem persists, please <a href="mailto:sammyphoenix79@gmail.com?subject={{@site}} {{@ERROR.code}}: {{@ERROR.text}}">let us know</a> so we can fix the issue.</p>
+					<p class="mt-4">
+						({{ @ERROR.code }}): {{ @ERROR.text }}
+						{{ print_r(@ERROR) }}
+						SESSION:
+						{{ print_r(@SESSION) }}</p>
+				</section>
+				<!--Section: Block Content-->
+			</div>
+		</div>
+	</div>
+</main>
+<include href="footer.htm" />

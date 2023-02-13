@@ -1,0 +1,93 @@
+<!--Main layout-->
+<main role="main" class="container">
+    <div class="container-fluid m-auto"> <!-- this is to make it responsive to your screen width -->
+            <div class="row">
+                <div class="col main-container">  <!-- myClassName is defined in my CSS as you defined your container -->
+                    <h1 class="mb-3">User profile</h1>
+
+                    <!--Section: Content-->
+                    <section>
+                        <div class="row">
+                            <div class="col-md-8 mb-4 mb-md-0">
+                                <div class="card mb-4">
+                                    <div class="card-header py-3">
+                                        <strong>Edit profile</strong>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <strong>Profile photo</strong>
+                                        </div>
+                                        <turbo-frame id="profile">
+                                        <form method="post" action="/user/profile" enctype="multipart/form-data">
+                                            <div class="d-flex justify-content-center mb-4">
+                                                <div id="dnd-default-value" class="file-upload-wrapper shadow-1" style="max-width: 300px">
+                                                    <input
+                                                            type="file"
+                                                            data-mdb-accepted-extensions="image/jpeg, image/png, image/gif, image/tiff, image/svg+xml, image/webp"
+                                                            data-mdb-max-file-size="5M"
+                                                            class="file-upload-input rounded-circle"
+                                                            data-mdb-default-file="{{@user.image}}"
+                                                            data-mdb-file-upload="file-upload"
+                                                            name="image" id="image"
+                                                            aria-label="Choose File"
+                                                            data-mdb-main-error="Sorry, there was a problem"
+                                                            data-mdb-format-error="Bad file format"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-outline-primary mb-3 mt-0" id="upload" name="upload">Save Image</button>
+
+                                            <div class="form-outline mb-4">
+                                                <input type="text" id="displayName" name="displayName" class="form-control" value="{{@user.displayName}}" />
+                                                <label class="form-label" for="displayName">Name</label>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <input type="email" id="email" name="email" class="form-control" value="{{@user.email}}" />
+                                                <label class="form-label" for="email">Email</label>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <textarea id="bio" name="bio" rows="4" class="form-control" placeholder="Say a few words about yourself">{{trim(@user.bio)}}</textarea>                                             </textarea>
+                                                <label class="form-label" for="bio">About me</label>
+                                            </div>
+                                            <!-- Hidden fields -->
+                                            <input type="hidden" name="session_csrf" value="{{ @CSRF }}" />
+                                            <input type="hidden" name="edit" value="edit" />
+                                            <input type="hidden" name="id" value="{{ @SESSION.user_id }}" />
+                                            <button type="submit" class="btn btn-primary mb-2">
+                                                Update profile
+                                            </button>
+                                        </form>
+                                        </turbo-frame>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <img class="rounded-circle shadow-1 mb-3" src="{{@user.image}}"
+                                             loading="lazy"
+                                             alt="avatar" style="width: 150px;">
+
+                                        <p class="mb-1"><strong>{{trim(@user.displayName)}}</strong></p>
+                                            <p class="mb-2"><small>
+                                                <em><check if="{{ @SESSION.user_type }}==1"><true>Standard user</true><false><check if="{{ @SESSION.user_type }}==10"><true>Superuser</true><false>Administrator</false></check></false>
+                                                </check></em>
+                                            </small></p>
+
+                                        <p class="mb-2 text-muted">{{trim(@user.bio)}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--Section: Content-->
+                </div>
+            </div>
+    </div>
+</main>
+<!--Main layout-->

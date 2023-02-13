@@ -1,0 +1,67 @@
+<!--Main layout-->
+<div class="container pt-5 smform">
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header p-4 text-center">
+					<h2>{{@title}}</h2>
+				</div>
+				<div class="card-body p-4">
+					<!--Main layout-->
+					<form action="/register" class="needs-validation" novalidate method="post">
+						<!-- Name input -->
+						<div class="form-outline mb-4">
+							<input type="text" id="displayName" name="displayName" class="form-control" />
+							<label class="form-label" for="displayName">Name</label>
+							<div class="invalid-feedback">This field is required</div>
+						</div>
+
+						<!-- Username input -->
+						<div class="form-outline mb-4">
+							<input type="text" name="username" id="username" required class="form-control" />
+							<label class="form-label" for="username">{{ @i18n_username }}</label>
+							<div class="invalid-feedback">This field is required</div>
+						</div>
+
+						<!-- Email input -->
+						<div class="form-outline mb-4">
+							<input type="email" id="email" data-validation="email" value="" name="email" required class="form-control" />
+							<label class="form-label" for="email">{{ @i18n_email }}</label>
+							<div class="invalid-feedback">Please enter a valid email address</div>
+						</div>
+
+						<!-- Password input -->
+						<div class="form-outline mb-4">
+							<input type="password" data-validation="length"  data-validation-length="min8" name="password" id="password" required class="form-control" />
+							<label class="form-label" for="password">{{ @i18n_password }}</label>
+							<div class="invalid-feedback">Please enter a password containing at least 8 characters</div>
+						</div>
+
+						<!-- Repeat Password input -->
+						<div class="form-outline mb-4">
+							<input type="password" name="confirm" id="confirm" required class="form-control" />
+							<label class="form-label" for="confirm">{{ @i18n_password_conf }}</label>
+							<div class="invalid-feedback">Passwords don't match</div>
+						</div>
+
+						<!-- Checkbox -->
+						<div class="form-check d-flex justify-content-center mb-4">
+							<input class="form-check-input me-2" type="checkbox" value=1 name="conditions" id="conditions" required checked
+								   aria-describedby="registerCheckHelpText" />
+							<label class="form-check-label" for="conditions">
+								I have read and agree to the terms
+							</label>
+							<div class="invalid-feedback">You must agree to the terms</div>
+						</div>
+						<input type="hidden" name="session_csrf" value="{{ @CSRF }}" />
+						<input type="hidden" name="create" value="create" />
+						<!-- Submit button -->
+						<button type="submit" id="create" class="btn btn-primary btn-block mb-3">
+							Register
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
